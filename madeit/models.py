@@ -5,7 +5,8 @@ from django.utils import timezone
 
 # Create your models here.
 class Thread(models.Model):
-    thread_text = models.CharField(max_length=1000)
+    thread_title = models.CharField(max_length=200)
+    thread_text = models.TextField(max_length=1000)
     pub_date = models.DateTimeField('date published')
     votes = models.IntegerField(default=0)
     
@@ -22,7 +23,7 @@ class Thread(models.Model):
 
 class Comment(models.Model):
     thread = models.ForeignKey(Thread)
-    comment_text = models.CharField(max_length=1000)
+    comment_text = models.TextField(max_length=1000)
     votes = models.IntegerField(default=0)
     
     def __str__(self):              # __unicode__ on Python 2
