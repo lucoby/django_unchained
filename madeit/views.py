@@ -9,10 +9,10 @@ from madeit.models import Comment, Thread
 # Create your views here.
 class IndexView(generic.ListView):
     template_name = 'madeit/index.html'
-    context_object_name = 'latest_Thread_list'
+    context_object_name = 'latest_thread_list'
 
     def get_queryset(self):
-        """Return the last five published Threads."""
+        """Return the last 10 published Threads."""
         return Thread.objects.order_by('-pub_date')[:10]
 
 

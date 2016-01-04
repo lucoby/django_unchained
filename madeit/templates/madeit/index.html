@@ -1,9 +1,27 @@
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
+<h1>MadeIt</h1>
+{% if latest_thread_list %}
+   
+    <table>
+         {% for thread in latest_thread_list %}
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td><button type="button>">^</button></td>
+                        </tr>
+                        <tr>
+                            <td>{{ thread.votes }}</td>
+                        </tr>
+                        <tr>
+                            <td><button type="button>">v</button></td>
+                        </tr>
+                    </table>
+                </td>
+                <td><a href="{% url 'madeit:thread' thread.id %}">{{ thread.thread_title }}</a></td>
+            </tr>
+
+        {% endfor %}
+    </table>
 {% else %}
-    <p>No polls are available.</p>
+    <p>There doesn't appear to be any threads here.</p>
 {% endif %}
