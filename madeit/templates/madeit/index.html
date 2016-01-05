@@ -1,27 +1,33 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'madeit/style.css' %}" />
+
+
 <h1>MadeIt</h1>
 {% if latest_thread_list %}
-   
-    <table>
-         {% for thread in latest_thread_list %}
-            <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <td><button type="button>">^</button></td>
-                        </tr>
-                        <tr>
-                            <td>{{ thread.votes }}</td>
-                        </tr>
-                        <tr>
-                            <td><button type="button>">v</button></td>
-                        </tr>
-                    </table>
-                </td>
-                <td><a href="{% url 'madeit:thread' thread.id %}">{{ thread.thread_title }}</a></td>
-            </tr>
-
-        {% endfor %}
-    </table>
+   <div id="threadOverview">
+        <table>
+             {% for thread in latest_thread_list %}
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><button type="button>">^</button></td>
+                            </tr>
+                            <tr>
+                                <td id="votes">{{ thread.votes }}</td>
+                            </tr>
+                            <tr>
+                                <td><button type="button>">v</button></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td><a href="{% url 'madeit:thread' thread.id %}">{{ thread.thread_title }}</a></td>
+                </tr>
+    
+            {% endfor %}
+        </table>
+    </div>
 {% else %}
     <p>There doesn't appear to be any threads here.</p>
 {% endif %}
