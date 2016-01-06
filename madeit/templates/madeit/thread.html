@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'madeit/style.css' %}" />
 
-<h1>MadeIt</h1>
+<h1><a href="{% url 'madeit:index' %}">MadeIt</a></h1>
 
 <div class="thread_full">
     <table>
@@ -48,9 +48,8 @@
     <tr>
         <td style="width: 25px"></td>
         <td>
-            <table>
+            <table class="comment">
                 {% for comment in thread.comment_set.all %}
-                <div class="comment">
                     <tr>
                         <td>
                             <table>
@@ -69,9 +68,8 @@
                                 </tr>
                             </table>
                         </td>
-                </div>
-                <td>{{ comment.comment_text }}</td>
-                </tr>
+                        <td>{{ comment.comment_text }}</td>
+                    </tr>
                 {% endfor %}
             </table>
         </td>

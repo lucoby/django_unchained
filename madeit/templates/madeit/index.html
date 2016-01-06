@@ -3,31 +3,37 @@
 <link rel="stylesheet" type="text/css" href="{% static 'madeit/style.css' %}" />
 
 
-<h1>MadeIt</h1>
-{% if latest_thread_list %}
-   <div class="thread_preview">
-        <table>
-             {% for thread in latest_thread_list %}
+<h1><a href="{% url 'madeit:index' %}">MadeIt</a></h1> {% if latest_thread_list %}
+
+<table class="thread_preview">
+    {% for thread in latest_thread_list %}
+    <tr>
+        <td>
+            <table>
                 <tr>
                     <td>
-                        <table>
-                            <tr>
-                                <td><button class="upvote" type="button>">^</button></td>
-                            </tr>
-                            <tr>
-                                <td id="votes">{{ thread.votes }}</td>
-                            </tr>
-                            <tr>
-                                <td><button class="downvote" type="button>">v</button></td>
-                            </tr>
-                        </table>
+                        <button class="upvote" type="button>">^</button>
                     </td>
-                    <td><a href="{% url 'madeit:thread' thread.id %}">{{ thread.thread_title }}</a></td>
                 </tr>
-    
-            {% endfor %}
-        </table>
-    </div>
+                <tr>
+                    <td class="votes">{{ thread.votes }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="downvote" type="button>">v</button>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <p>{{ thread.thread_title }}</p>
+            <p><a href="{% url 'madeit:thread' thread.id %}">[comments]</a></p>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+
 {% else %}
-    <p>There doesn't appear to be any threads here.</p>
+<p>There doesn't appear to be any threads here.</p>
 {% endif %}
