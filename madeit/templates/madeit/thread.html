@@ -1,24 +1,34 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'madeit/style.css' %}" />
+
 <h1>MadeIt</h1>
 
-<table>
+<div class="thread_full">
+    <table>
         <tr>
             <td>
                 <table>
                     <tr>
-                        <td><button type="button>">^</button></td>
+                        <td>
+                            <button class="upvote" type="button>">^</button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>{{ thread.votes }}</td>
+                        <td class="votes">{{ thread.votes }}</td>
                     </tr>
                     <tr>
-                        <td><button type="button>">v</button></td>
+                        <td>
+                            <button class="downvote" type="button>">v</button>
+                        </td>
                     </tr>
                 </table>
             </td>
             <td>
                 <table>
                     <tr>
-                        <td><h2>{{ thread.thread_title }}</h2></td>
+                        <td>
+                            <h2>{{ thread.thread_title }}</h2></td>
                     </tr>
                     <tr>
                         <td>{{ thread.thread_text }}</td>
@@ -27,40 +37,47 @@
             </td>
         </tr>
     </table>
+</div>
 
 
 
 
 {% if thread.comment_set.all %}
 
-    <table>
-        <tr>
-            <td style="width: 25px"></td>
-            <td>
-                <table>
-                         {% for comment in thread.comment_set.all %}
-                            <tr>
-                                <td>
-                                    <table>
-                                        <tr>
-                                            <td><button type="button>">^</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{ comment.votes }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><button type="button>">v</button></td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td>{{ comment.comment_text }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-            </td>
-        </tr>
-    </table>
-    
+<table>
+    <tr>
+        <td style="width: 25px"></td>
+        <td>
+            <table>
+                {% for comment in thread.comment_set.all %}
+                <div class="comment">
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button class="upvote" type="button>">^</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="votes">{{ comment.votes }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button class="downvote" type="button>">v</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                </div>
+                <td>{{ comment.comment_text }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+</table>
+
 {% else %}
-    <p>There doesn't appear to be any comments here.</p>
+<p>There doesn't appear to be any comments here.</p>
 {% endif %}

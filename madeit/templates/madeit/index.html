@@ -5,20 +5,20 @@
 
 <h1>MadeIt</h1>
 {% if latest_thread_list %}
-   <div id="threadOverview">
+   <div class="thread_preview">
         <table>
              {% for thread in latest_thread_list %}
                 <tr>
                     <td>
                         <table>
                             <tr>
-                                <td><button type="button>">^</button></td>
+                                <td><button class="upvote" type="button>">^</button></td>
                             </tr>
                             <tr>
                                 <td id="votes">{{ thread.votes }}</td>
                             </tr>
                             <tr>
-                                <td><button type="button>">v</button></td>
+                                <td><button class="downvote" type="button>">v</button></td>
                             </tr>
                         </table>
                     </td>

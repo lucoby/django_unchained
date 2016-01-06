@@ -1,11 +1,41 @@
-table {
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
 #votes {
-	text-align: center;
+    text-align: center;
+}
+
+.upvote {
+    border-radius: 4px;
+    border: thin solid #6699ff;
+    background-color: #3377ff;
+    font-family: "Helvetica";
+    font-weight: bold;
+    color: #f2f2f2;
+}
+
+.upvote:hover {
+    border: thin solid #5cd65c;
+    background-color: #33cc33;
+    color: #f2f2f2;
+    cursor: pointer;
+}
+
+.downvote {
+    border-radius: 4px;
+    border: thin solid #6699ff;
+    background-color: #3377ff;
+    font-family: "Helvetica";
+    color: #f2f2f2;
+}
+
+.downvote:hover {
+    border: thin solid #ff6666;
+    background-color: #ff3333;
+    color: #f2f2f2;
+    cursor: pointer;
+}
+
+.thread_preview, .thread_full, .comment {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #99d6ff;
+    border-radius: 5px;
+    padding: 10px;
 }
