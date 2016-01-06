@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'madeit/style.css' %}" />
 
 
-<h1><a href="{% url 'madeit:index' %}">MadeIt</a></h1> {% if latest_thread_list %}
+<h1><a  class="madeit" href="{% url 'madeit:index' %}">MadeIt</a></h1> {% if latest_thread_list %}
 
 <table class="thread_preview">
     {% for thread in latest_thread_list %}
