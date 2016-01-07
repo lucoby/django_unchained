@@ -41,13 +41,17 @@
     width: 100%;
 }
 
-h1, subtitle {
+h1, .subtitle {
     font-family: Helvetica, Arial, sans-serif;
 }
 
 .madeit {
     color: black;
     text-decoration: none;
+}
+
+.meta {
+    font-size:smaller;
 }
 
 /*table {*/
