@@ -30,7 +30,10 @@
                         <h2>{{ thread.thread_title }}</h2></td>
                 </tr>
                 <tr>
-                    <td>{{ thread.thread_text }}</td>
+                    <td>
+                        <p>{{ thread.thread_text }}</p>
+                        <p class="meta">{{ thread.pub_date }}<</p>
+                    </td>
                 </tr>
             </table>
         </td>
@@ -67,7 +70,10 @@
                             </tr>
                         </table>
                     </td>
-                    <td>{{ comment.comment_text }}</td>
+                    <td>
+                        <p>{{ comment.comment_text }}</p>
+                        <p class="meta">{{ comment.pub_date }}</p>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>

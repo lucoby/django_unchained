@@ -25,6 +25,7 @@ class Comment(models.Model):
     thread = models.ForeignKey(Thread)
     comment_text = models.TextField(max_length=1000)
     votes = models.IntegerField(default=0)
+    pub_date = models.DateTimeField('date published')
     
     def __str__(self):              # __unicode__ on Python 2
         return self.comment_text
