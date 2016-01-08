@@ -27,7 +27,7 @@
         </td>
         <td>
             <p>{{ thread.thread_title }}</p>
-            <p class="meta">{{ thread.pub_date }} | <a href="{% url 'madeit:thread' thread.id %}">[comments]</a></p>
+            <p class="meta">posted at {{ thread.pub_date }} | <a href="{% url 'madeit:thread' thread.id %}">[comments]</a></p>
         </td>
     </tr>
 
