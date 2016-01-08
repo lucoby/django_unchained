@@ -37,10 +37,18 @@
 
 .thread_preview, .thread_full, .comment {
     font-family: Helvetica, Arial, sans-serif;
-    background-color: #99d6ff;
-    border-radius: 5px;
+    background-color: #cce5ff;
+    border-radius: 7px;
     padding: 10px;
     width: 100%;
+}
+
+.thread_preview tr:nth-child(odd), .thread_full tr:nth-child(odd), .comment tr:nth-child(odd) {
+    background-color: #cce5ff;
+}
+
+.thread_preview tr:nth-child(even), .thread_full tr:nth-child(even), .comment tr:nth-child(even) {
+    background-color: #e5f2ff;
 }
 
 h1, .subtitle {
@@ -56,10 +64,10 @@ h1, .subtitle {
     font-size:smaller;
 }
 
-table {
-    border-collapse: collapse;
-}
+/*table {*/
+/*    border-collapse: collapse;*/
+/*}*/
 
-table, th, td {
-    border: 1px solid black;
-}
+/*table, th, td {*/
+/*    border: 1px solid black;*/
+/*}*/
