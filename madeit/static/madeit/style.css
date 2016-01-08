@@ -1,13 +1,14 @@
 .votes {
     text-align: center;
+    line-height: 0px;
 }
 
 .upvote {
     border-radius: 4px;
+    width: 25px;
     border: thin solid #6699ff;
     background-color: #3377ff;
     font-family: "Helvetica";
-    font-weight: bold;
     color: #f2f2f2;
 }
 
@@ -20,6 +21,7 @@
 
 .downvote {
     border-radius: 4px;
+    width: 25px;
     border: thin solid #6699ff;
     background-color: #3377ff;
     font-family: "Helvetica";
@@ -54,10 +56,10 @@ h1, .subtitle {
     font-size:smaller;
 }
 
-/*table {*/
-/*    border-collapse: collapse;*/
-/*}*/
+table {
+    border-collapse: collapse;
+}
 
-/*table, th, td {*/
-/*    border: 1px solid black;*/
-/*}*/
+table, th, td {
+    border: 1px solid black;
+}

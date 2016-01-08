@@ -9,21 +9,11 @@
     {% for thread in latest_thread_list %}
     <tr>
         <td>
-            <table>
-                <tr>
-                    <td>
-                        <button class="upvote" type="button>">^</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="votes">{{ thread.votes }}</td>
-                </tr>
-                <tr>
-                    <td>
-                        <button class="downvote" type="button>">v</button>
-                    </td>
-                </tr>
-            </table>
+            <div class="votes">
+                <p><button class="upvote" type="button>">^</button></p>
+                <p>{{ thread.votes }}</p>
+                <p><button class="downvote" type="button>">v</button></p>
+            </div>
         </td>
         <td>
             <p>{{ thread.thread_title }}</p>
