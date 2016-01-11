@@ -10,7 +10,7 @@ class CommentInline(admin.TabularInline):
 class ThreadAdmin(admin.ModelAdmin):
     list_display = ('thread_text', 'pub_date', 'was_published_recently')
     fieldsets = [
-        (None,               {'fields': ['thread_title', 'thread_text', 'votes']}),
+        (None,               {'fields': ['thread_title', 'thread_text', 'votes', 'user']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
     inlines = [CommentInline]
