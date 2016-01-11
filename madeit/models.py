@@ -9,6 +9,7 @@ class Thread(models.Model):
     thread_text = models.TextField(max_length=1000)
     pub_date = models.DateTimeField('date published')
     votes = models.IntegerField(default=0)
+    user = models.CharField(max_length=32)
     
     def __str__(self):              # __unicode__ on Python 2
         return self.thread_text
@@ -26,6 +27,7 @@ class Comment(models.Model):
     comment_text = models.TextField(max_length=1000)
     votes = models.IntegerField(default=0)
     pub_date = models.DateTimeField('date published')
+    user = models.CharField(max_length=32)
     
     def __str__(self):              # __unicode__ on Python 2
         return self.comment_text
