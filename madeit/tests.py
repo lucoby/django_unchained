@@ -32,7 +32,7 @@ def create_comment(thread, comment_text, days, votes, user):
                                     user=user)
 
 
-class ThreadIndexViewTests(TestCase):
+class MadeitIndexViewTests(TestCase):
     def test_index_view_with_no_threads(self):
         """
         If no threads exist, an appropriate message should be displayed.
@@ -58,8 +58,8 @@ class ThreadIndexViewTests(TestCase):
             ['<Thread: Past thread.>']
         )
         
-class ThreadDetailTests(TestCase):
-    def test_detail_view_with_a_no_comments(self):
+class MadeitThreadViewTests(TestCase):
+    def test_detail_view_with_no_comments(self):
         """
         The detail view of a question with a pub_date in the future should
         return a 404 not found.
@@ -69,14 +69,14 @@ class ThreadDetailTests(TestCase):
                                 days=-30, 
                                 votes=0, 
                                 user="guest")
-        response = self.client.get(reverse('madeit:detail',
+        response = self.client.get(reverse('madeit:thread',
                                    args=(thread.id,)))
         self.assertContains(response, thread.thread_text,
                             status_code=200)
         self.assertContains(response, "There doesn't appear to be any comments here.",
                             status_code=200)
 
-    def test_detail_view_with_a_comments(self):
+    def test_detail_view_with_comments(self):
         """
         The detail view of a question with a pub_date in the past should
         display the question's text.
@@ -86,12 +86,12 @@ class ThreadDetailTests(TestCase):
                                 days=-30, 
                                 votes=0, 
                                 user="guest")
-        comment = create_comment(thread=thread.id, 
+        comment = create_comment(thread=thread, 
                                 comment_text="Past comment.", 
                                 days=-29, 
                                 votes=0, 
                                 user="guest")
-        response = self.client.get(reverse('madeit:detail',
-                                   args=(thread.id,)))
+        response = self.client.get(reverse('madeit:thread',
+                                  args=(thread.id,)))
         self.assertContains(response, "Past comment.",
                             status_code=200)
