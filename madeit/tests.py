@@ -32,24 +32,28 @@ def create_comment(thread, comment_text, days, votes, user):
                                     user=user)
 
 
-class QuestionViewTests(TestCase):
-    def test_index_view_with_no_questions(self):
+class IndexViewTests(TestCase):
+    def test_index_view_with_no_threads(self):
         """
-        If no questions exist, an appropriate message should be displayed.
+        If no threads exist, an appropriate message should be displayed.
         """
-        response = self.client.get(reverse('polls:index'))
+        response = self.client.get(reverse('madeit:index'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "No polls are available.")
-        self.assertQuerysetEqual(response.context['latest_question_list'], [])
+        self.assertContains(response, "There doesn't appear to be any threads here.")
+        self.assertQuerysetEqual(response.context['latest_thread_list'], [])
 
-    def test_index_view_with_a_past_question(self):
+    def test_index_view_with_a_past_thread(self):
         """
-        Questions with a pub_date in the past should be displayed on the
+        Threads with a pub_date in the past should be displayed on the
         index page.
         """
-        create_question(question_text="Past question.", days=-30)
-        response = self.client.get(reverse('polls:index'))
+        create_thread(thread_title="Past thread", 
+                        thread_text="Past thread.", 
+                        days=-30, 
+                        votes=0, 
+                        user="guest")
+        response = self.client.get(reverse('madeit:index'))
         self.assertQuerysetEqual(
-            response.context['latest_question_list'],
-            ['<Question: Past question.>']
+            response.context['latest_thread_list'],
+            ['<Thread: Past thread.>']
         )
