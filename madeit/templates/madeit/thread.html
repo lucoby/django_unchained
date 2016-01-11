@@ -16,7 +16,7 @@
         <td>
             <h2>{{ thread.thread_title }}</h2>
             <p>{{ thread.thread_text }}</p>
-            <p class="meta">posted at {{ thread.pub_date }}</p>
+            <p class="meta">posted by {{ thread.user }} at {{ thread.pub_date }}</p>
         </td>
     </tr>
 </table>
@@ -40,7 +40,7 @@
         </td>
         <td>
             <p>{{ comment.comment_text }}</p>
-            <p class="meta">posted at {{ comment.pub_date }}</p>
+            <p class="meta">posted by {{ thread.user }} at {{ comment.pub_date }}</p>
         </td>
     </tr>
     {% endfor %}
